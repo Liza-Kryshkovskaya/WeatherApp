@@ -12,5 +12,8 @@ struct WeatherView: View {
     
     var body: some View {
         Text("Current Weather")
+            .onAppear {
+                viewModel.getCurrentWeather()
+            }
     }
 }

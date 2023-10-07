@@ -17,6 +17,10 @@
 		3DA08D232AD19115008645B6 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D222AD19115008645B6 /* HTTPClient.swift */; };
 		3DA08D252AD19127008645B6 /* HTTPClientTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D242AD19127008645B6 /* HTTPClientTask.swift */; };
 		3DA08D272AD191E5008645B6 /* URLSessionHTTPClientTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D262AD191E5008645B6 /* URLSessionHTTPClientTask.swift */; };
+		3DA08D2A2AD1955A008645B6 /* CurrentWeatherNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D292AD1955A008645B6 /* CurrentWeatherNetworkService.swift */; };
+		3DA08D2C2AD1977C008645B6 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D2B2AD1977C008645B6 /* CurrentWeather.swift */; };
+		3DA08D2E2AD19A5A008645B6 /* CurrentWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D2D2AD19A5A008645B6 /* CurrentWeatherService.swift */; };
+		3DA08D302AD19DD8008645B6 /* APISecrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D2F2AD19DD8008645B6 /* APISecrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,10 @@
 		3DA08D222AD19115008645B6 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3DA08D242AD19127008645B6 /* HTTPClientTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTask.swift; sourceTree = "<group>"; };
 		3DA08D262AD191E5008645B6 /* URLSessionHTTPClientTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTask.swift; sourceTree = "<group>"; };
+		3DA08D292AD1955A008645B6 /* CurrentWeatherNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherNetworkService.swift; sourceTree = "<group>"; };
+		3DA08D2B2AD1977C008645B6 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		3DA08D2D2AD19A5A008645B6 /* CurrentWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherService.swift; sourceTree = "<group>"; };
+		3DA08D2F2AD19DD8008645B6 /* APISecrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISecrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,8 @@
 			children = (
 				3DA08D182AD18839008645B6 /* Application */,
 				3DA08D212AD190F3008645B6 /* API */,
+				3DA08D282AD193B3008645B6 /* Network */,
+				3DA08D312AD19EB8008645B6 /* Model */,
 				3DA08D1B2AD18E34008645B6 /* Screen */,
 			);
 			path = WeatherApp;
@@ -150,8 +160,26 @@
 				3DA08D222AD19115008645B6 /* HTTPClient.swift */,
 				3DA08D242AD19127008645B6 /* HTTPClientTask.swift */,
 				3DA08D262AD191E5008645B6 /* URLSessionHTTPClientTask.swift */,
+				3DA08D2F2AD19DD8008645B6 /* APISecrets.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		3DA08D282AD193B3008645B6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3DA08D2D2AD19A5A008645B6 /* CurrentWeatherService.swift */,
+				3DA08D292AD1955A008645B6 /* CurrentWeatherNetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3DA08D312AD19EB8008645B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DA08D2B2AD1977C008645B6 /* CurrentWeather.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,13 +282,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA08D2E2AD19A5A008645B6 /* CurrentWeatherService.swift in Sources */,
 				3DA08D1A2AD18C36008645B6 /* WeatherView.swift in Sources */,
 				3DA08D232AD19115008645B6 /* HTTPClient.swift in Sources */,
 				3DA08D1F2AD18F4F008645B6 /* WeatherViewModel.swift in Sources */,
 				3DA08D252AD19127008645B6 /* HTTPClientTask.swift in Sources */,
+				3DA08D2C2AD1977C008645B6 /* CurrentWeather.swift in Sources */,
 				3DA08D272AD191E5008645B6 /* URLSessionHTTPClientTask.swift in Sources */,
 				3DA08CE92AD1874E008645B6 /* AppDelegate.swift in Sources */,
+				3DA08D302AD19DD8008645B6 /* APISecrets.swift in Sources */,
 				3DA08CEB2AD1874E008645B6 /* SceneDelegate.swift in Sources */,
+				3DA08D2A2AD1955A008645B6 /* CurrentWeatherNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

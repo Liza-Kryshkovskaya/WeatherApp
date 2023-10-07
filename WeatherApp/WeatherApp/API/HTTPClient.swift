@@ -8,5 +8,6 @@
 import Foundation
 
 protocol HTTPClient {
+    @discardableResult
     func get(from url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) -> HTTPClientTask
 }

@@ -17,7 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
-        let weatherViewModel = WeatherViewModel()
+        let session = URLSession.shared
+        let httpClient = URLSessionHTTPClient(session: session)
+        let currentWeatherService = CurrentWeatherNetworkService(client: httpClient)
+        let weatherViewModel = WeatherViewModel(service: currentWeatherService)
         let weatherView = WeatherView(viewModel: weatherViewModel)
         window?.rootViewController = UIHostingController(rootView: weatherView)
         window?.makeKeyAndVisible()
