@@ -16,6 +16,7 @@
 		3DA08D1F2AD18F4F008645B6 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D1E2AD18F4F008645B6 /* WeatherViewModel.swift */; };
 		3DA08D232AD19115008645B6 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D222AD19115008645B6 /* HTTPClient.swift */; };
 		3DA08D252AD19127008645B6 /* HTTPClientTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D242AD19127008645B6 /* HTTPClientTask.swift */; };
+		3DA08D272AD191E5008645B6 /* URLSessionHTTPClientTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D262AD191E5008645B6 /* URLSessionHTTPClientTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		3DA08D1E2AD18F4F008645B6 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		3DA08D222AD19115008645B6 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3DA08D242AD19127008645B6 /* HTTPClientTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTask.swift; sourceTree = "<group>"; };
+		3DA08D262AD191E5008645B6 /* URLSessionHTTPClientTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			children = (
 				3DA08D222AD19115008645B6 /* HTTPClient.swift */,
 				3DA08D242AD19127008645B6 /* HTTPClientTask.swift */,
+				3DA08D262AD191E5008645B6 /* URLSessionHTTPClientTask.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				3DA08D232AD19115008645B6 /* HTTPClient.swift in Sources */,
 				3DA08D1F2AD18F4F008645B6 /* WeatherViewModel.swift in Sources */,
 				3DA08D252AD19127008645B6 /* HTTPClientTask.swift in Sources */,
+				3DA08D272AD191E5008645B6 /* URLSessionHTTPClientTask.swift in Sources */,
 				3DA08CE92AD1874E008645B6 /* AppDelegate.swift in Sources */,
 				3DA08CEB2AD1874E008645B6 /* SceneDelegate.swift in Sources */,
 			);
