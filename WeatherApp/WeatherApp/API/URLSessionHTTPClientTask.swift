@@ -15,8 +15,6 @@ struct URLSessionHTTPClientTask: HTTPClientTask {
     }
 }
 
-struct UnexpectedError: Error {}
-
 final class URLSessionHTTPClient: HTTPClient {
     private let session: URLSession
     
@@ -32,7 +30,7 @@ final class URLSessionHTTPClient: HTTPClient {
                 } else if let data = data, let response = response as? HTTPURLResponse {
                     return (data, response)
                 } else {
-                    throw UnexpectedError()
+                    throw NetworkError.unexpectedError
                 }
             })
         }

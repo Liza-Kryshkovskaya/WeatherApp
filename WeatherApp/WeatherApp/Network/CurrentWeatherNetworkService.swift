@@ -21,10 +21,14 @@ final class CurrentWeatherNetworkService: CurrentWeatherService {
         
         client.get(from: url) { result in
             switch result {
-            case .success(let receivedResult):
-                print("status code = ", receivedResult.1.statusCode)
-                let model = CurrentWeather()
-                completion(.success(model))
+            case .success(let (data, response)):
+                do {
+                    let model = try WeatherMapper.map(data, from: response)
+                    completion(.success(model))
+                } catch {
+                    completion(.failure(NetworkError.invalidData))
+                }
+
             case .failure(let error):
                 completion(.failure(error))
             }

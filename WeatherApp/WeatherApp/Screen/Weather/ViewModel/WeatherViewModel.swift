@@ -18,9 +18,9 @@ final class WeatherViewModel: ObservableObject {
         service.getCurrentWeather { result in
             switch result {
             case .success(let currentWeather):
-                break
+                print(currentWeather)
             case .failure(let error):
-                break
+                print(error)
             }
         }
     }
