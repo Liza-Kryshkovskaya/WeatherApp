@@ -16,14 +16,33 @@ final class WeatherViewModel: ObservableObject {
     @Published var error: String? = nil
     
     private let service: CurrentWeatherService
+    private let locationService: LocationService
     var onSearchTap: (() -> Void)?
     
-    init(service: CurrentWeatherService) {
+    init(service: CurrentWeatherService, locationService: LocationService) {
         self.service = service
+        self.locationService = locationService
+    }
+    
+    func searchLocation() {
+        onSearchTap?()
     }
     
     func getCurrentWeather() {
-        service.getCurrentWeather { result in
+        locationService.getCurrentLocation { [weak self] result in
+            switch result {
+            case .success(let coordinate):
+                self?.getCurrentWeatherBy(coordinate)
+            case .failure(let error):
+                DispatchQueue.main.async { [weak self] in
+                    self?.error = error.localizedDescription
+                }
+            }
+        }
+    }
+    
+    private func getCurrentWeatherBy(_ coordinate: Coordinate) {
+        service.getCurrentWeatherBy(coordinate: coordinate) { result in
             switch result {
             case .success(let currentWeather):
                 DispatchQueue.main.async { [weak self] in
@@ -41,9 +60,5 @@ final class WeatherViewModel: ObservableObject {
                 }
             }
         }
-    }
-    
-    func searchLocation() {
-        onSearchTap?()
     }
 }

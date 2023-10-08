@@ -13,11 +13,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     private lazy var navigationController = UINavigationController(rootViewController: makeWeatherViewController())
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         
-        window = UIWindow(windowScene: scene)        
+        window = UIWindow(windowScene: scene)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
@@ -26,7 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let session = URLSession.shared
         let httpClient = URLSessionHTTPClient(session: session)
         let currentWeatherService = CurrentWeatherNetworkService(client: httpClient)
-        let weatherViewModel = WeatherViewModel(service: currentWeatherService)
+        let locationService = CurrentLocationService()
+        let weatherViewModel = WeatherViewModel(service: currentWeatherService, locationService: locationService)
         let weatherView = WeatherView(viewModel: weatherViewModel)
         let weatherLocationNetworkService = WeatherLocationNetworkService(client: httpClient)
         let searchViewModel = SearchViewModel(service: weatherLocationNetworkService) { [weak self] location in
