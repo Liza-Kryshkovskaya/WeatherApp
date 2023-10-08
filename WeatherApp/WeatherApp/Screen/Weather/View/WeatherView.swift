@@ -11,9 +11,15 @@ struct WeatherView: View {
     @ObservedObject var viewModel: WeatherViewModel
     
     var body: some View {
-        Text("Current Weather")
-            .onAppear {
-                viewModel.getCurrentWeather()
-            }
+        VStack {
+            Text(viewModel.city)
+            Text(viewModel.temperature)
+            Text(viewModel.weatherCondition)
+            Text("H:\(viewModel.maxTemp)")
+            Text("L:\(viewModel.minTemp)")
+        }
+        .onAppear {
+            viewModel.getCurrentWeather()
+        }
     }
 }

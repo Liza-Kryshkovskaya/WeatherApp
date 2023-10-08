@@ -8,6 +8,13 @@
 import SwiftUI
 
 final class WeatherViewModel: ObservableObject {
+    @Published var city: String = ""
+    @Published var temperature: String = ""
+    @Published var weatherCondition: String = ""
+    @Published var minTemp: String = ""
+    @Published var maxTemp: String = ""
+    @Published var error: String? = nil
+    
     private let service: CurrentWeatherService
     
     init(service: CurrentWeatherService) {
@@ -18,9 +25,19 @@ final class WeatherViewModel: ObservableObject {
         service.getCurrentWeather { result in
             switch result {
             case .success(let currentWeather):
-                print(currentWeather)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.city = currentWeather.city
+                    self.temperature = String(currentWeather.main.temp)
+                    self.weatherCondition = currentWeather.weatherCondition.first?.description ?? "-"
+                    self.minTemp = String(currentWeather.main.minTemp)
+                    self.maxTemp = String(currentWeather.main.maxTemp)
+                }
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.error = error.localizedDescription
+                }
             }
         }
     }
