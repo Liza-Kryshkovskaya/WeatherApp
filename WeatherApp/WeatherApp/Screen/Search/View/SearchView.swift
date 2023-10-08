@@ -11,15 +11,26 @@ struct SearchView: View {
     @ObservedObject var viewModel: SearchViewModel
     
     var body: some View {
-        HStack {
-            TextField("Search for a city", text: $viewModel.city) {
-                viewModel.getWeatherByCity()
+        VStack {
+            HStack {
+                TextField("Search for a city", text: $viewModel.city)
+                    .textFieldStyle(.roundedBorder)
+                Button {
+                    viewModel.clear()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                }
             }
-            .textFieldStyle(.roundedBorder)
-            Button {
-                viewModel.clear()
-            } label: {
-                Image(systemName: "xmark.circle.fill")
+            
+            ForEach(viewModel.locations, id: \.self) { location in
+                Text("\(location.name), \(location.country)")
+                    .onTapGesture {
+                        viewModel.getWeatherBy(location)
+                    }
+            }
+            
+            if let error = viewModel.error {
+                Text(error)
             }
         }
         .onChange(of: viewModel.city, perform: { _ in

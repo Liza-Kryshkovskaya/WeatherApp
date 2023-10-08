@@ -23,7 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let weatherViewModel = WeatherViewModel(service: currentWeatherService)
         let weatherView = WeatherView(viewModel: weatherViewModel)
         let weatherLocationNetworkService = WeatherLocationNetworkService(client: httpClient)
-        let searchViewModel = SearchViewModel(service: weatherLocationNetworkService)
+        let searchViewModel = SearchViewModel(service: weatherLocationNetworkService) { location in
+            print("Selected location = ", location.name, location.lat, location.lon)
+        }
         let searchView = SearchView(viewModel: searchViewModel)
         window?.rootViewController = UIHostingController(rootView: weatherView)
         window?.rootViewController = UIHostingController(rootView: searchView)
