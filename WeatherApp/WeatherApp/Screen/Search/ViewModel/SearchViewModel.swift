@@ -47,6 +47,7 @@ final class SearchViewModel: ObservableObject {
     
     func getWeatherBy(_ location: WeatherLocation) {
         onSelect(location)
+        clear()
     }
     
     func clear() {

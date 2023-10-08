@@ -16,6 +16,7 @@ final class WeatherViewModel: ObservableObject {
     @Published var error: String? = nil
     
     private let service: CurrentWeatherService
+    var onSearchTap: (() -> Void)?
     
     init(service: CurrentWeatherService) {
         self.service = service
@@ -40,5 +41,9 @@ final class WeatherViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func searchLocation() {
+        onSearchTap?()
     }
 }

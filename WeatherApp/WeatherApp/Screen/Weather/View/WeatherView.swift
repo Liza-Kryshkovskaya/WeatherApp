@@ -12,6 +12,12 @@ struct WeatherView: View {
     
     var body: some View {
         VStack {
+            Button {
+                viewModel.searchLocation()
+            } label: {
+                Image(systemName: "magnifyingglass")
+            }
+
             Text(viewModel.city)
             Text(viewModel.temperature)
             Text(viewModel.weatherCondition)
