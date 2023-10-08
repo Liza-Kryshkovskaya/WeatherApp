@@ -22,6 +22,8 @@ struct SearchView: View {
                 Image(systemName: "xmark.circle.fill")
             }
         }
-
+        .onChange(of: viewModel.city, perform: { _ in
+            viewModel.searchCities()
+        })
     }
 }

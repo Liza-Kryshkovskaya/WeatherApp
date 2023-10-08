@@ -22,7 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let currentWeatherService = CurrentWeatherNetworkService(client: httpClient)
         let weatherViewModel = WeatherViewModel(service: currentWeatherService)
         let weatherView = WeatherView(viewModel: weatherViewModel)
+        let searchViewModel = SearchViewModel()
+        let searchView = SearchView(viewModel: searchViewModel)
         window?.rootViewController = UIHostingController(rootView: weatherView)
+        window?.rootViewController = UIHostingController(rootView: searchView)
         window?.makeKeyAndVisible()
     }
 }
