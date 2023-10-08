@@ -30,6 +30,7 @@
 		3DA08D422AD2C312008645B6 /* WeatherLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D412AD2C312008645B6 /* WeatherLocationService.swift */; };
 		3DA08D442AD2C31F008645B6 /* WeatherLocationNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D432AD2C31F008645B6 /* WeatherLocationNetworkService.swift */; };
 		3DA08D462AD2C499008645B6 /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D452AD2C499008645B6 /* WeatherLocation.swift */; };
+		3DA08D482AD2D27E008645B6 /* WeatherLocationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D472AD2D27E008645B6 /* WeatherLocationMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		3DA08D412AD2C312008645B6 /* WeatherLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationService.swift; sourceTree = "<group>"; };
 		3DA08D432AD2C31F008645B6 /* WeatherLocationNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationNetworkService.swift; sourceTree = "<group>"; };
 		3DA08D452AD2C499008645B6 /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
+		3DA08D472AD2D27E008645B6 /* WeatherLocationMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				3DA08D362AD1E168008645B6 /* WeatherMapper.swift */,
 				3DA08D412AD2C312008645B6 /* WeatherLocationService.swift */,
 				3DA08D432AD2C31F008645B6 /* WeatherLocationNetworkService.swift */,
+				3DA08D472AD2D27E008645B6 /* WeatherLocationMapper.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA08D482AD2D27E008645B6 /* WeatherLocationMapper.swift in Sources */,
 				3DA08D2E2AD19A5A008645B6 /* CurrentWeatherService.swift in Sources */,
 				3DA08D1A2AD18C36008645B6 /* WeatherView.swift in Sources */,
 				3DA08D232AD19115008645B6 /* HTTPClient.swift in Sources */,

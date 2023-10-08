@@ -26,9 +26,9 @@ final class SearchViewModel: ObservableObject {
             self.service.getLocationsBy(cityName: self.city) { result in
                 switch result {
                 case .success(let locations):
-                    break
+                    print(locations)
                 case .failure(let error):
-                    break
+                    print(error)
                 }
             }
         }
