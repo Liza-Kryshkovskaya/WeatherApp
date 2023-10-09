@@ -12,20 +12,27 @@ struct WeatherView: View {
     
     var body: some View {
         VStack {
-            Button {
-                viewModel.searchLocation()
-            } label: {
-                Image(systemName: "magnifyingglass")
-            }
+            if let error = viewModel.error {
+                Button(action: {
+                    viewModel.retry()
+                }) {
+                    Text("\(error) Retry")
+                }
+            } else {
+                VStack {
+                    Button {
+                        viewModel.searchLocation()
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                    }
 
-            Text(viewModel.city)
-            Text(viewModel.temperature)
-            Text(viewModel.weatherCondition)
-            Text("H:\(viewModel.maxTemp)")
-            Text("L:\(viewModel.minTemp)")
-        }
-        .onAppear {
-            viewModel.getCurrentWeather()
+                    Text(viewModel.city)
+                    Text(viewModel.temperature)
+                    Text(viewModel.weatherCondition)
+                    Text("H:\(viewModel.maxTemp)")
+                    Text("L:\(viewModel.minTemp)")
+                }
+            }
         }
     }
 }

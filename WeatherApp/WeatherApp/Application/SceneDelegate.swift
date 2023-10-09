@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let weatherViewModel = WeatherViewModel(service: currentWeatherService, locationService: locationService)
         let weatherView = WeatherView(viewModel: weatherViewModel)
         let weatherLocationNetworkService = WeatherLocationNetworkService(client: httpClient)
-        let searchViewModel = SearchViewModel(service: weatherLocationNetworkService) { [weak self] coordinate in
+        let searchViewModel = SearchViewModel(service: weatherLocationNetworkService, locationService: locationService) { [weak self] coordinate in
             weatherViewModel.getCurrentWeatherBy(coordinate)
             self?.dismissView()
         }

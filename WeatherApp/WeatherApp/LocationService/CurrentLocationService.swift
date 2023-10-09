@@ -18,24 +18,20 @@ final class CurrentLocationService: NSObject, LocationService {
     }
 
     func getCurrentLocation(completion: @escaping (Result<Coordinate, Error>) -> Void) {
+        locationManager.requestLocation()
         self.completion = completion
-    }
-    
-    private func coordinateByDefault() -> Coordinate {
-        return Coordinate(lat: 44.34, lon: 10.99)
     }
 }
 
 extension CurrentLocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
-        case .authorizedWhenInUse:
+        case .authorizedWhenInUse, .authorizedAlways:
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestLocation()
-        case .notDetermined:
-            break
-        default:
+        case .denied:
             completion?(.failure(LocationServiceError.accessDenied))
+        default:
+            break
         }
     }
     
@@ -43,8 +39,6 @@ extension CurrentLocationService: CLLocationManagerDelegate {
         if let location = locations.last {
             let coordinate = Coordinate(lat: location.coordinate.latitude, lon: location.coordinate.longitude)
             completion?(.success(coordinate))
-        } else {
-            completion?(.success(coordinateByDefault()))
         }
     }
     

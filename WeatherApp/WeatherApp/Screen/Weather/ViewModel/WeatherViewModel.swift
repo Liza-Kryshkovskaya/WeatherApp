@@ -22,43 +22,50 @@ final class WeatherViewModel: ObservableObject {
     init(service: CurrentWeatherService, locationService: LocationService) {
         self.service = service
         self.locationService = locationService
+        
+        getCurrentWeather()
     }
     
     func searchLocation() {
         onSearchTap?()
     }
     
-    func getCurrentWeather() {
-        locationService.getCurrentLocation { [weak self] result in
-            switch result {
-            case .success(let coordinate):
-                self?.getCurrentWeatherBy(coordinate)
-            case .failure(let error):
-                DispatchQueue.main.async { [weak self] in
-                    self?.error = error.localizedDescription
-                }
-            }
-        }
+    func retry() {
+        error = nil
+        getCurrentWeather()
     }
     
     func getCurrentWeatherBy(_ coordinate: Coordinate) {
-        service.getCurrentWeatherBy(coordinate: coordinate) { result in
-            switch result {
-            case .success(let currentWeather):
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
+        service.getCurrentWeatherBy(coordinate: coordinate) { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let currentWeather):
                     self.city = currentWeather.city
                     self.temperature = String(currentWeather.main.temp)
                     self.weatherCondition = currentWeather.weatherCondition.first?.description ?? "-"
                     self.minTemp = String(currentWeather.main.minTemp)
                     self.maxTemp = String(currentWeather.main.maxTemp)
-                }
-            case .failure(let error):
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
+                case .failure(let error):
                     self.error = error.localizedDescription
                 }
             }
         }
+    }
+    
+    private func getCurrentWeather() {
+        locationService.getCurrentLocation { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let coordinate):
+                self.getCurrentWeatherBy(coordinate)
+            case .failure:
+                self.getCurrentWeatherBy(self.coordinateByDefault())
+            }
+        }
+    }
+    
+    private func coordinateByDefault() -> Coordinate {
+        return Coordinate(lat: 51.10, lon: 17.03)
     }
 }

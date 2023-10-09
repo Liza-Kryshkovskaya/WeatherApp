@@ -13,11 +13,13 @@ final class SearchViewModel: ObservableObject {
     @Published var error: String? = nil
     
     private let service: WeatherLocationService
+    private let locationService: LocationService
     private let onSelect: (Coordinate) -> Void
     private var searchTask: DispatchWorkItem?
     
-    init(service: WeatherLocationService, onSelect: @escaping (Coordinate) -> Void) {
+    init(service: WeatherLocationService, locationService: LocationService, onSelect: @escaping (Coordinate) -> Void) {
         self.service = service
+        self.locationService = locationService
         self.onSelect = onSelect
     }
     
@@ -47,8 +49,22 @@ final class SearchViewModel: ObservableObject {
         clear()
     }
     
+    func getWeatherByCurrentLocation() {
+        locationService.getCurrentLocation { [weak self] result in
+            switch result {
+            case .success(let coordinate):
+                self?.onSelect(coordinate)
+            case .failure:
+                self?.error = "Location service denied. Go to Settings"
+            }
+        }
+        
+        clear()
+    }
+    
     func clear() {
         city = ""
         locations = []
+        error = nil
     }
 }

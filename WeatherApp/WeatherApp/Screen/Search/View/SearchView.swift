@@ -20,6 +20,11 @@ struct SearchView: View {
                 } label: {
                     Image(systemName: "xmark.circle.fill")
                 }
+                Button {
+                    viewModel.getWeatherByCurrentLocation()
+                } label: {
+                    Image(systemName: "location.circle.fill")
+                }
             }
             
             ForEach(viewModel.locations, id: \.self) { location in
