@@ -25,7 +25,7 @@ struct SearchView: View {
             ForEach(viewModel.locations, id: \.self) { location in
                 Text("\(location.name), \(location.country)")
                     .onTapGesture {
-                        viewModel.getWeatherBy(location)
+                        viewModel.getWeatherByLocation(Coordinate(lat: location.lat, lon: location.lon))
                     }
             }
             

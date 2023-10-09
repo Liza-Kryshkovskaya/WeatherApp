@@ -41,7 +41,7 @@ final class WeatherViewModel: ObservableObject {
         }
     }
     
-    private func getCurrentWeatherBy(_ coordinate: Coordinate) {
+    func getCurrentWeatherBy(_ coordinate: Coordinate) {
         service.getCurrentWeatherBy(coordinate: coordinate) { result in
             switch result {
             case .success(let currentWeather):

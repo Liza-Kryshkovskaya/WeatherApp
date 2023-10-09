@@ -41,7 +41,6 @@ extension CurrentLocationService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            print(location.coordinate)
             let coordinate = Coordinate(lat: location.coordinate.latitude, lon: location.coordinate.longitude)
             completion?(.success(coordinate))
         } else {

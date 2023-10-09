@@ -13,10 +13,10 @@ final class SearchViewModel: ObservableObject {
     @Published var error: String? = nil
     
     private let service: WeatherLocationService
-    private let onSelect: (WeatherLocation) -> Void
+    private let onSelect: (Coordinate) -> Void
     private var searchTask: DispatchWorkItem?
     
-    init(service: WeatherLocationService, onSelect: @escaping (WeatherLocation) -> Void) {
+    init(service: WeatherLocationService, onSelect: @escaping (Coordinate) -> Void) {
         self.service = service
         self.onSelect = onSelect
     }
@@ -28,14 +28,11 @@ final class SearchViewModel: ObservableObject {
         let newSearchTask = DispatchWorkItem { [weak self] in
             guard let self = self else { return }
             self.service.getLocationsBy(cityName: self.city) { result in
-                switch result {
-                case .success(let locations):
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let locations):
                         self.locations = locations
-                        print(locations)
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
+                    case .failure(let error):
                         self.error = error.localizedDescription
                     }
                 }
@@ -45,8 +42,8 @@ final class SearchViewModel: ObservableObject {
         searchTask = newSearchTask
     }
     
-    func getWeatherBy(_ location: WeatherLocation) {
-        onSelect(location)
+    func getWeatherByLocation(_ coordinate: Coordinate) {
+        onSelect(coordinate)
         clear()
     }
     
