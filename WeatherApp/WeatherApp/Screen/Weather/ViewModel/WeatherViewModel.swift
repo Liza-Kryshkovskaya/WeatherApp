@@ -15,7 +15,7 @@ final class WeatherViewModel: ObservableObject {
     @Published var maxTemp: String = ""
     @Published var error: String? = nil
     @Published var units: Units = .metric
-    private var selectedCoordinate: Coordinate = Coordinate(lat: 51.10, lon: 17.03)
+    private var selectedCoordinate: Coordinate = Constants.defaultCoordinate
     private let service: CurrentWeatherService
     private let locationService: LocationService
     var onSearchTap: (() -> Void)?

@@ -37,6 +37,7 @@
 		3DA08D532AD361F2008645B6 /* CurrentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D522AD361F2008645B6 /* CurrentLocationService.swift */; };
 		3DA08D552AD4157F008645B6 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D542AD4157F008645B6 /* Endpoint.swift */; };
 		3DA08D572AD47D3A008645B6 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D562AD47D3A008645B6 /* Units.swift */; };
+		3DA08D592AD482DC008645B6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D582AD482DC008645B6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		3DA08D522AD361F2008645B6 /* CurrentLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationService.swift; sourceTree = "<group>"; };
 		3DA08D542AD4157F008645B6 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		3DA08D562AD47D3A008645B6 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		3DA08D582AD482DC008645B6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				3DA08D452AD2C499008645B6 /* WeatherLocation.swift */,
 				3DA08D4D2AD36116008645B6 /* Coordinate.swift */,
 				3DA08D562AD47D3A008645B6 /* Units.swift */,
+				3DA08D582AD482DC008645B6 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				3DA08D462AD2C499008645B6 /* WeatherLocation.swift in Sources */,
 				3DA08D2C2AD1977C008645B6 /* CurrentWeather.swift in Sources */,
 				3DA08D272AD191E5008645B6 /* URLSessionHTTPClientTask.swift in Sources */,
+				3DA08D592AD482DC008645B6 /* Constants.swift in Sources */,
 				3DA08CE92AD1874E008645B6 /* AppDelegate.swift in Sources */,
 				3DA08D532AD361F2008645B6 /* CurrentLocationService.swift in Sources */,
 				3DA08D442AD2C31F008645B6 /* WeatherLocationNetworkService.swift in Sources */,
