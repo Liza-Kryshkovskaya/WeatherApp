@@ -15,7 +15,7 @@ final class CurrentWeatherNetworkService: CurrentWeatherService {
     }
     
     func getCurrentWeatherBy(coordinate: Coordinate, completion: @escaping (Result<CurrentWeather, Error>) -> Void) {
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinate.lat)&lon=\(coordinate.lon)&appid=\(APISecrets.apiKey)")!
+        let url = Endpoint.weather(latitude: coordinate.lat, longitude: coordinate.lon).url()
         
         client.get(from: url) { result in
             switch result {
