@@ -35,6 +35,7 @@
 		3DA08D4E2AD36116008645B6 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D4D2AD36116008645B6 /* Coordinate.swift */; };
 		3DA08D512AD361DE008645B6 /* LocationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D502AD361DE008645B6 /* LocationServiceError.swift */; };
 		3DA08D532AD361F2008645B6 /* CurrentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D522AD361F2008645B6 /* CurrentLocationService.swift */; };
+		3DA08D552AD4157F008645B6 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D542AD4157F008645B6 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		3DA08D4D2AD36116008645B6 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		3DA08D502AD361DE008645B6 /* LocationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceError.swift; sourceTree = "<group>"; };
 		3DA08D522AD361F2008645B6 /* CurrentLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationService.swift; sourceTree = "<group>"; };
+		3DA08D542AD4157F008645B6 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				3DA08D242AD19127008645B6 /* HTTPClientTask.swift */,
 				3DA08D262AD191E5008645B6 /* URLSessionHTTPClientTask.swift */,
 				3DA08D2F2AD19DD8008645B6 /* APISecrets.swift */,
+				3DA08D542AD4157F008645B6 /* Endpoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -198,9 +201,9 @@
 		3DA08D282AD193B3008645B6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				3DA08D382AD1E2A3008645B6 /* NetworkError.swift */,
 				3DA08D4A2AD32957008645B6 /* CurrentWeatherService */,
 				3DA08D492AD3293F008645B6 /* WeatherLocationService */,
-				3DA08D382AD1E2A3008645B6 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				3DA08D372AD1E168008645B6 /* WeatherMapper.swift in Sources */,
 				3DA08D402AD2A830008645B6 /* SearchViewModel.swift in Sources */,
 				3DA08D2A2AD1955A008645B6 /* CurrentWeatherNetworkService.swift in Sources */,
+				3DA08D552AD4157F008645B6 /* Endpoint.swift in Sources */,
 				3DA08D332AD1DAF0008645B6 /* CurrentWeatherMain.swift in Sources */,
 				3DA08D422AD2C312008645B6 /* WeatherLocationService.swift in Sources */,
 			);

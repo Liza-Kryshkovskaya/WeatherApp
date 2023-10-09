@@ -15,8 +15,8 @@ final class WeatherLocationNetworkService: WeatherLocationService {
     }
     
     func getLocationsBy(cityName: String, completion: @escaping (Result<[WeatherLocation], Error>) -> Void) {
-        let limit = 5
-        let url = URL(string: "https://api.openweathermap.org/geo/1.0/direct?q=\(cityName)&limit=\(limit)&appid=\(APISecrets.apiKey)")!
+        let url = WeatherEndpoint.locations(cityName: cityName, limit: 10).url()
+
         client.get(from: url) { result in
             switch result {
             case .success(let (data, response)):
