@@ -31,6 +31,13 @@ struct WeatherView: View {
                     Text(viewModel.weatherCondition)
                     Text("H:\(viewModel.maxTemp)")
                     Text("L:\(viewModel.minTemp)")
+                    
+                    Button {
+                        viewModel.toggleUnits()
+                    } label: {
+                        Text(viewModel.units == .metric ? "C" : "F")
+                    }
+
                 }
             }
         }

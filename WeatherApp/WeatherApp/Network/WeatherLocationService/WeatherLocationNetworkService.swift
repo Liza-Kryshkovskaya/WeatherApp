@@ -14,8 +14,8 @@ final class WeatherLocationNetworkService: WeatherLocationService {
         self.client = client
     }
     
-    func getLocationsBy(cityName: String, completion: @escaping (Result<[WeatherLocation], Error>) -> Void) {
-        let url = Endpoint.locations(cityName: cityName, limit: 10).url()
+    func getLocationsBy(cityName: String, limit: Int, completion: @escaping (Result<[WeatherLocation], Error>) -> Void) {
+        let url = Endpoint.locations(cityName: cityName, limit: limit).url()
 
         client.get(from: url) { result in
             switch result {

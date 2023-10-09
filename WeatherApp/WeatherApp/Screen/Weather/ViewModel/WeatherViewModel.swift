@@ -14,7 +14,8 @@ final class WeatherViewModel: ObservableObject {
     @Published var minTemp: String = ""
     @Published var maxTemp: String = ""
     @Published var error: String? = nil
-    
+    @Published var units: Units = .metric
+    private var selectedCoordinate: Coordinate = Coordinate(lat: 51.10, lon: 17.03)
     private let service: CurrentWeatherService
     private let locationService: LocationService
     var onSearchTap: (() -> Void)?
@@ -30,13 +31,18 @@ final class WeatherViewModel: ObservableObject {
         onSearchTap?()
     }
     
+    func toggleUnits() {
+        units = units == .metric ? .imperial : .metric
+        getCurrentWeatherBy(selectedCoordinate)
+    }
+    
     func retry() {
         error = nil
         getCurrentWeather()
     }
     
     func getCurrentWeatherBy(_ coordinate: Coordinate) {
-        service.getCurrentWeatherBy(coordinate: coordinate) { [weak self] result in
+        service.getCurrentWeatherBy(coordinate: coordinate, units: units.rawValue) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
@@ -46,6 +52,7 @@ final class WeatherViewModel: ObservableObject {
                     self.weatherCondition = currentWeather.weatherCondition.first?.description ?? "-"
                     self.minTemp = String(currentWeather.main.minTemp)
                     self.maxTemp = String(currentWeather.main.maxTemp)
+                    self.selectedCoordinate = coordinate
                 case .failure(let error):
                     self.error = error.localizedDescription
                 }
@@ -60,12 +67,8 @@ final class WeatherViewModel: ObservableObject {
             case .success(let coordinate):
                 self.getCurrentWeatherBy(coordinate)
             case .failure:
-                self.getCurrentWeatherBy(self.coordinateByDefault())
+                self.getCurrentWeatherBy(self.selectedCoordinate)
             }
         }
-    }
-    
-    private func coordinateByDefault() -> Coordinate {
-        return Coordinate(lat: 51.10, lon: 17.03)
     }
 }

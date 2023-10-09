@@ -8,5 +8,5 @@
 import Foundation
 
 protocol WeatherLocationService {
-    func getLocationsBy(cityName: String, completion: @escaping (Result<[WeatherLocation], Error>) -> Void)
+    func getLocationsBy(cityName: String, limit: Int, completion: @escaping (Result<[WeatherLocation], Error>) -> Void)
 }

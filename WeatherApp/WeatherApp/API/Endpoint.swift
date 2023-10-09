@@ -9,7 +9,7 @@ import Foundation
 
 enum Endpoint {
     case locations(cityName: String, limit: Int)
-    case weather(latitude: Double, longitude: Double)
+    case weather(latitude: Double, longitude: Double, units: String)
 
     private var baseURL: URL {
         URL(string: "https://api.openweathermap.org")!
@@ -30,11 +30,12 @@ enum Endpoint {
             ]
             return components.url!
             
-        case .weather(let latitude, let longitude):
+        case .weather(let latitude, let longitude, let units):
             components.path = baseURL.path + "/data/2.5/weather"
             components.queryItems = [
                 URLQueryItem(name: "lat", value: "\(latitude)"),
                 URLQueryItem(name: "lon", value: "\(longitude)"),
+                URLQueryItem(name: "units", value: units),
                 URLQueryItem(name: "appid", value: "\(APISecrets.apiKey)")
             ]
             return components.url!

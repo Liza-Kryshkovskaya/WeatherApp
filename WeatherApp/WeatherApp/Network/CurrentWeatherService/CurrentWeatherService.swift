@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CurrentWeatherService {
-    func getCurrentWeatherBy(coordinate: Coordinate, completion: @escaping (Result<CurrentWeather, Error>) -> Void)
+    func getCurrentWeatherBy(coordinate: Coordinate, units: String, completion: @escaping (Result<CurrentWeather, Error>) -> Void)
 }

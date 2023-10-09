@@ -14,8 +14,8 @@ final class CurrentWeatherNetworkService: CurrentWeatherService {
         self.client = client
     }
     
-    func getCurrentWeatherBy(coordinate: Coordinate, completion: @escaping (Result<CurrentWeather, Error>) -> Void) {
-        let url = Endpoint.weather(latitude: coordinate.lat, longitude: coordinate.lon).url()
+    func getCurrentWeatherBy(coordinate: Coordinate, units: String, completion: @escaping (Result<CurrentWeather, Error>) -> Void) {
+        let url = Endpoint.weather(latitude: coordinate.lat, longitude: coordinate.lon, units: units).url()
         
         client.get(from: url) { result in
             switch result {

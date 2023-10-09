@@ -29,7 +29,7 @@ final class SearchViewModel: ObservableObject {
         guard !city.isEmpty else { return }
         let newSearchTask = DispatchWorkItem { [weak self] in
             guard let self = self else { return }
-            self.service.getLocationsBy(cityName: self.city) { result in
+            self.service.getLocationsBy(cityName: self.city, limit: 10) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let locations):
