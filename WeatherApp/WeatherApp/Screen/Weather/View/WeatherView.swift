@@ -30,11 +30,18 @@ struct WeatherView: View {
                             Image(systemName: "magnifyingglass")
                         }
 
-                        Text(viewModel.city)
-                        Text(viewModel.temperature)
-                        Text(viewModel.weatherCondition)
-                        Text("H:\(viewModel.maxTemp)")
-                        Text("L:\(viewModel.minTemp)")
+                        if let weather = viewModel.weather {
+                            Text(weather.city)
+                            Text(weather.temperature)
+                            Text(weather.weatherCondition)
+                            Text("H:" + weather.maxTemp)
+                            Text("L:" + weather.minTemp)
+                            Text(weather.visibility)
+                            Text(weather.windSpeed)
+                            Text(weather.sunset)
+                            Text(weather.sunrise)
+                            Text(weather.clouds)
+                        }
                         
                         Button {
                             viewModel.toggleUnits()

@@ -42,6 +42,7 @@
 		3DA08D5D2AD5751F008645B6 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D5C2AD5751F008645B6 /* Wind.swift */; };
 		3DA08D5F2AD57537008645B6 /* Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D5E2AD57537008645B6 /* Clouds.swift */; };
 		3DA08D612AD57544008645B6 /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D602AD57544008645B6 /* Sun.swift */; };
+		3DA08D632AD57A29008645B6 /* WeatherDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D622AD57A29008645B6 /* WeatherDisplayModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		3DA08D5C2AD5751F008645B6 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
 		3DA08D5E2AD57537008645B6 /* Clouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
 		3DA08D602AD57544008645B6 /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
+		3DA08D622AD57A29008645B6 /* WeatherDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDisplayModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				3DA08D1E2AD18F4F008645B6 /* WeatherViewModel.swift */,
+				3DA08D622AD57A29008645B6 /* WeatherDisplayModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				3DA08D592AD482DC008645B6 /* Constants.swift in Sources */,
 				3DA08CE92AD1874E008645B6 /* AppDelegate.swift in Sources */,
 				3DA08D532AD361F2008645B6 /* CurrentLocationService.swift in Sources */,
+				3DA08D632AD57A29008645B6 /* WeatherDisplayModel.swift in Sources */,
 				3DA08D442AD2C31F008645B6 /* WeatherLocationNetworkService.swift in Sources */,
 				3DA08D352AD1DC9E008645B6 /* WeatherCondition.swift in Sources */,
 				3DA08D392AD1E2A3008645B6 /* NetworkError.swift in Sources */,

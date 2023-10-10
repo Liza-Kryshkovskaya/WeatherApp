@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let httpClient = URLSessionHTTPClient(session: session)
         let currentWeatherService = CurrentWeatherNetworkService(client: httpClient)
         let locationService = CurrentLocationService()
-        let weatherViewModel = WeatherViewModel(service: currentWeatherService, locationService: locationService)
+        let weatherViewModel = WeatherViewModel(weatherService: currentWeatherService, locationService: locationService)
         let weatherView = WeatherView(viewModel: weatherViewModel)
         let weatherLocationNetworkService = WeatherLocationNetworkService(client: httpClient)
         let searchViewModel = SearchViewModel(
