@@ -9,12 +9,18 @@ import Foundation
 
 struct CurrentWeatherMain: Codable {
     let temp: Double
+    let feelsLike: Double
     let minTemp: Double
     let maxTemp: Double
+    let pressure: Int
+    let humidity: Int
+
     
     enum CodingKeys: String, CodingKey {
         case temp
+        case feelsLike = "feels_like"
         case minTemp = "temp_min"
         case maxTemp = "temp_max"
+        case pressure, humidity
     }
 }

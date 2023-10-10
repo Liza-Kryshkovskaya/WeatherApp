@@ -10,11 +10,17 @@ import Foundation
 struct CurrentWeather: Codable {
     let weatherCondition: [WeatherCondition]
     let main: CurrentWeatherMain
+    let visibility: Int
+    let wind: Wind
+    let clouds: Clouds
+    let sun: Sun
     let city: String
     
     enum CodingKeys: String, CodingKey {
         case weatherCondition = "weather"
         case main
+        case visibility, wind, clouds
+        case sun = "sys"
         case city = "name"
     }
 }
