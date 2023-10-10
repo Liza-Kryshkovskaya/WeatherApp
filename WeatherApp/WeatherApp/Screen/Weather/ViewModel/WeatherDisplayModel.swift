@@ -22,22 +22,34 @@ struct WeatherDisplayModel {
     let pressure: String
     let feelsLike: String
     private let iconName: String?
-
+    
     init(from currentWeather: CurrentWeather) {
         self.city = currentWeather.city
-        self.temperature = String(currentWeather.main.temp)
+        self.temperature = WeatherDisplayModel.formatTemperature(currentWeather.main.temp)
         self.weatherCondition = currentWeather.weatherCondition.first?.description ?? ""
-        self.minTemp = String(currentWeather.main.minTemp)
-        self.maxTemp = String(currentWeather.main.maxTemp)
-        self.visibility = String(currentWeather.visibility)
-        self.windSpeed = String(currentWeather.wind.speed)
-        self.clouds = String(currentWeather.clouds.all)
-        self.sunrise = String(currentWeather.sun.sunrise)
-        self.sunset = String(currentWeather.sun.sunset)
-        self.humidity = String(currentWeather.main.humidity)
-        self.pressure = String(currentWeather.main.pressure)
-        self.feelsLike = String(currentWeather.main.feelsLike)
+        self.minTemp = WeatherDisplayModel.formatTemperature(currentWeather.main.minTemp)
+        self.maxTemp = WeatherDisplayModel.formatTemperature(currentWeather.main.maxTemp)
+        self.visibility = String(currentWeather.visibility) + "m"
+        self.windSpeed = String(format: "%.0f", currentWeather.wind.speed) + "m/s"
+        self.clouds = String(currentWeather.clouds.all) + "%"
+        self.sunrise = WeatherDisplayModel.formatTime(TimeInterval(currentWeather.sun.sunrise))
+        self.sunset = WeatherDisplayModel.formatTime(TimeInterval(currentWeather.sun.sunset))
+        self.humidity = String(currentWeather.main.humidity) + "%"
+        self.pressure = String(currentWeather.main.pressure) + "hPa"
+        self.feelsLike = WeatherDisplayModel.formatTemperature(currentWeather.main.feelsLike)
         self.iconName = currentWeather.weatherCondition.first?.icon
+    }
+    
+    static private func formatTemperature(_ temperature: Double) -> String {
+        let formattedTemperature = String(format: "%.0f", temperature)
+        return "\(formattedTemperature)°"
+    }
+    
+    static private func formatTime(_ timestamp: TimeInterval) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let date = Date(timeIntervalSince1970: timestamp)
+        return dateFormatter.string(from: date)
     }
 }
 

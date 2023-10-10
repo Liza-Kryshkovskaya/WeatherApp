@@ -41,11 +41,14 @@ struct WeatherView: View {
                                     Text("L:" + weather.minTemp)
                                 }
                             }
-                            Text(weather.visibility)
-                            Text(weather.windSpeed)
-                            Text(weather.sunset)
-                            Text(weather.sunrise)
-                            Text(weather.clouds)
+                            Text("Visibility " + weather.visibility)
+                            Text("Wind " + weather.windSpeed)
+                            Text("Sunset " + weather.sunset)
+                            Text("Sunrise " + weather.sunrise)
+                            Text("Pressure " + weather.pressure)
+                            Text("Humidity " + weather.humidity)
+                            Text("Cloudiness " + weather.clouds)
+                            Text("Feels like " + weather.feelsLike)
                         }
                         
                         Button {
