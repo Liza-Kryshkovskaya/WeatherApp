@@ -13,8 +13,8 @@ final class WeatherViewModel: ObservableObject {
     @Published var weatherCondition: String = ""
     @Published var minTemp: String = ""
     @Published var maxTemp: String = ""
-    @Published var error: String? = nil
     @Published var units: Units = .metric
+    @Published var state: State = .loading
     private var selectedCoordinate: Coordinate = Constants.defaultCoordinate
     private let service: CurrentWeatherService
     private let locationService: LocationService
@@ -37,11 +37,12 @@ final class WeatherViewModel: ObservableObject {
     }
     
     func retry() {
-        error = nil
+        state = .loading
         getCurrentWeather()
     }
     
     func getCurrentWeatherBy(_ coordinate: Coordinate) {
+        state = .loading
         service.getCurrentWeatherBy(coordinate: coordinate, units: units.rawValue) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -53,14 +54,16 @@ final class WeatherViewModel: ObservableObject {
                     self.minTemp = String(currentWeather.main.minTemp)
                     self.maxTemp = String(currentWeather.main.maxTemp)
                     self.selectedCoordinate = coordinate
+                    self.state = .loaded(error: nil)
                 case .failure(let error):
-                    self.error = error.localizedDescription
+                    self.state = .loaded(error: error.localizedDescription)
                 }
             }
         }
     }
     
     private func getCurrentWeather() {
+        state = .loading
         locationService.getCurrentLocation { [weak self] result in
             guard let self = self else { return }
             switch result {

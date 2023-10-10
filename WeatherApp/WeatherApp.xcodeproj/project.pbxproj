@@ -38,6 +38,7 @@
 		3DA08D552AD4157F008645B6 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D542AD4157F008645B6 /* Endpoint.swift */; };
 		3DA08D572AD47D3A008645B6 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D562AD47D3A008645B6 /* Units.swift */; };
 		3DA08D592AD482DC008645B6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D582AD482DC008645B6 /* Constants.swift */; };
+		3DA08D5B2AD54C2D008645B6 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D5A2AD54C2D008645B6 /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		3DA08D542AD4157F008645B6 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		3DA08D562AD47D3A008645B6 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		3DA08D582AD482DC008645B6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3DA08D5A2AD54C2D008645B6 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				3DA08D4D2AD36116008645B6 /* Coordinate.swift */,
 				3DA08D562AD47D3A008645B6 /* Units.swift */,
 				3DA08D582AD482DC008645B6 /* Constants.swift */,
+				3DA08D5A2AD54C2D008645B6 /* State.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				3DA08D332AD1DAF0008645B6 /* CurrentWeatherMain.swift in Sources */,
 				3DA08D572AD47D3A008645B6 /* Units.swift in Sources */,
 				3DA08D422AD2C312008645B6 /* WeatherLocationService.swift in Sources */,
+				3DA08D5B2AD54C2D008645B6 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
