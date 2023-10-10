@@ -11,6 +11,7 @@ final class SearchViewModel: ObservableObject {
     @Published var city: String = ""
     @Published var locations = [WeatherLocation]()
     @Published var error: String? = nil
+    @Published var showLocationErrorAlert: Bool = false
     
     private let service: WeatherLocationService
     private let locationService: LocationService
@@ -60,7 +61,7 @@ final class SearchViewModel: ObservableObject {
             case .success(let coordinate):
                 self?.onSelect(coordinate)
             case .failure:
-                self?.error = "Location service denied. Go to Settings"
+                self?.showLocationErrorAlert = true
             }
         }
         

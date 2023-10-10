@@ -42,9 +42,12 @@ struct SearchView: View {
                 }
             }
             
-            if let error = viewModel.error {
-                Text(error)
-            }
+            Spacer()
+        }
+        .alert(isPresented: $viewModel.showLocationErrorAlert) {
+            Alert(title: Text("Location Services Disabled"),
+                  message: Text("To enable location services, go to Settings. You can continue to access the weather by searching for a city."),
+                  dismissButton: .default(Text("OK")))
         }
         .onChange(of: viewModel.city, perform: { _ in
             viewModel.searchCities()
