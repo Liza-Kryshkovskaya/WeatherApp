@@ -31,11 +31,16 @@ struct WeatherView: View {
                         }
 
                         if let weather = viewModel.weather {
-                            Text(weather.city)
-                            Text(weather.temperature)
-                            Text(weather.weatherCondition)
-                            Text("H:" + weather.maxTemp)
-                            Text("L:" + weather.minTemp)
+                            VStack {
+                                Text(weather.city)
+                                Text(weather.temperature)
+                                Image(systemName: weather.weatherIconName)
+                                Text(weather.weatherCondition)
+                                HStack {
+                                    Text("H:" + weather.maxTemp)
+                                    Text("L:" + weather.minTemp)
+                                }
+                            }
                             Text(weather.visibility)
                             Text(weather.windSpeed)
                             Text(weather.sunset)
