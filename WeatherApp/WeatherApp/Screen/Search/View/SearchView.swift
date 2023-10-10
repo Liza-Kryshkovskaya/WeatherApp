@@ -13,6 +13,11 @@ struct SearchView: View {
     var body: some View {
         VStack {
             HStack {
+                Button {
+                    viewModel.getWeatherByCurrentLocation()
+                } label: {
+                    Image(systemName: "location.circle.fill")
+                }
                 TextField("Search for a city", text: $viewModel.city)
                     .textFieldStyle(.roundedBorder)
                 Button {
@@ -21,17 +26,20 @@ struct SearchView: View {
                     Image(systemName: "xmark.circle.fill")
                 }
                 Button {
-                    viewModel.getWeatherByCurrentLocation()
+                    viewModel.cancel()
                 } label: {
-                    Image(systemName: "location.circle.fill")
+                    Text("Cancel")
                 }
             }
             
             ForEach(viewModel.locations, id: \.self) { location in
-                Text("\(location.name), \(location.country)")
-                    .onTapGesture {
-                        viewModel.getWeatherByLocation(Coordinate(lat: location.lat, lon: location.lon))
-                    }
+                HStack {
+                    Text("\(location.name), \(location.country)")
+                        .onTapGesture {
+                            viewModel.getWeatherByLocation(Coordinate(lat: location.lat, lon: location.lon))
+                        }
+                    Spacer()
+                }
             }
             
             if let error = viewModel.error {

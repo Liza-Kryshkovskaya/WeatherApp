@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
+        navigationController.isNavigationBarHidden = true
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
@@ -30,10 +31,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let weatherViewModel = WeatherViewModel(service: currentWeatherService, locationService: locationService)
         let weatherView = WeatherView(viewModel: weatherViewModel)
         let weatherLocationNetworkService = WeatherLocationNetworkService(client: httpClient)
-        let searchViewModel = SearchViewModel(service: weatherLocationNetworkService, locationService: locationService) { [weak self] coordinate in
-            weatherViewModel.getCurrentWeatherBy(coordinate)
-            self?.dismissView()
-        }
+        let searchViewModel = SearchViewModel(
+            service: weatherLocationNetworkService,
+            locationService: locationService) { [weak self] coordinate in
+                weatherViewModel.getCurrentWeatherBy(coordinate)
+                self?.dismissView()
+            } onCancelButtonTap: { [weak self] in
+                self?.dismissView()
+            }
         let searchView = SearchView(viewModel: searchViewModel)
         let searchViewController = UIHostingController(rootView: searchView)
     

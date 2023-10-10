@@ -15,12 +15,17 @@ final class SearchViewModel: ObservableObject {
     private let service: WeatherLocationService
     private let locationService: LocationService
     private let onSelect: (Coordinate) -> Void
+    private let onCancelButtonTap: () -> Void
     private var searchTask: DispatchWorkItem?
     
-    init(service: WeatherLocationService, locationService: LocationService, onSelect: @escaping (Coordinate) -> Void) {
+    init(service: WeatherLocationService,
+         locationService: LocationService,
+         onSelect: @escaping (Coordinate) -> Void,
+         onCancelButtonTap: @escaping () -> Void) {
         self.service = service
         self.locationService = locationService
         self.onSelect = onSelect
+        self.onCancelButtonTap = onCancelButtonTap
     }
     
     func searchCities() {
@@ -66,5 +71,9 @@ final class SearchViewModel: ObservableObject {
         city = ""
         locations = []
         error = nil
+    }
+    
+    func cancel() {
+        onCancelButtonTap()
     }
 }
