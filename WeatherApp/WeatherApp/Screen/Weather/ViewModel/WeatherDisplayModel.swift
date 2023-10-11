@@ -29,13 +29,13 @@ struct WeatherDisplayModel {
         self.weatherCondition = currentWeather.weatherCondition.first?.description ?? ""
         self.minTemp = WeatherDisplayModel.formatTemperature(currentWeather.main.minTemp)
         self.maxTemp = WeatherDisplayModel.formatTemperature(currentWeather.main.maxTemp)
-        self.visibility = String(currentWeather.visibility) + "m"
-        self.windSpeed = String(format: "%.0f", currentWeather.wind.speed) + "m/s"
+        self.visibility = String(currentWeather.visibility) + " m"
+        self.windSpeed = String(format: "%.0f", currentWeather.wind.speed) + " m/s"
         self.clouds = String(currentWeather.clouds.all) + "%"
         self.sunrise = WeatherDisplayModel.formatTime(TimeInterval(currentWeather.sun.sunrise))
         self.sunset = WeatherDisplayModel.formatTime(TimeInterval(currentWeather.sun.sunset))
         self.humidity = String(currentWeather.main.humidity) + "%"
-        self.pressure = String(currentWeather.main.pressure) + "hPa"
+        self.pressure = String(currentWeather.main.pressure) + " hPa"
         self.feelsLike = WeatherDisplayModel.formatTemperature(currentWeather.main.feelsLike)
         self.iconName = currentWeather.weatherCondition.first?.icon
     }
