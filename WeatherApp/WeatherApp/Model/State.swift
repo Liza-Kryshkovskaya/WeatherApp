@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum State {
+enum StateView {
     case loading
     case loaded(error: String?)
 }

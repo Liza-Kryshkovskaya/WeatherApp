@@ -10,7 +10,7 @@ import SwiftUI
 final class WeatherViewModel: ObservableObject {
     @Published var weather: WeatherDisplayModel?
     @Published var units: Units = .metric
-    @Published var state: State = .loading
+    @Published var state: StateView = .loading
     private var selectedCoordinate: Coordinate = Constants.defaultCoordinate
     private let weatherService: CurrentWeatherService
     private let locationService: LocationService

@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ErrorView: View {
     let error: String
-    let action: () -> Void
+    let action: (() -> Void)?
     
     var body: some View {
         VStack(spacing: 16) {
             Image(systemName: "wifi.exclamationmark")
                 .font(.system(size: 50, weight: .bold))
                 .opacity(0.7)
-            Text("Weather Unavailable")
+            Text("Service Unavailable")
                 .font(.title)
                 .fontWeight(.bold)
             Text(error.capitalized)
@@ -24,13 +24,14 @@ struct ErrorView: View {
                 .font(.system(size: 18))
                 .lineSpacing(4)
                 .opacity(0.7)
-            Button(action: {
-                action()
-            }) {
-                Text("Retry")
-                    .font(.system(size: 18))
+            
+            if action != nil {
+                Button(action: { action?() }) {
+                    Text("Retry").font(.system(size: 18))
+                }
             }
         }
+        .padding(.horizontal, 24)
         .foregroundColor(Color("foreground"))
     }
 }

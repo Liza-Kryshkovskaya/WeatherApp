@@ -48,6 +48,7 @@
 		3DA08D692AD6FB0F008645B6 /* WeatherDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D682AD6FB0F008645B6 /* WeatherDataCell.swift */; };
 		3DA08D6B2AD6FB78008645B6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D6A2AD6FB78008645B6 /* ErrorView.swift */; };
 		3DA08D6E2AD6FBC2008645B6 /* WeatherContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D6D2AD6FBC2008645B6 /* WeatherContentView.swift */; };
+		3DA08D702AD72975008645B6 /* WeatherBackround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D6F2AD72975008645B6 /* WeatherBackround.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		3DA08D682AD6FB0F008645B6 /* WeatherDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataCell.swift; sourceTree = "<group>"; };
 		3DA08D6A2AD6FB78008645B6 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		3DA08D6D2AD6FBC2008645B6 /* WeatherContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherContentView.swift; sourceTree = "<group>"; };
+		3DA08D6F2AD72975008645B6 /* WeatherBackround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherBackround.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 			children = (
 				3DA08D642AD6FACA008645B6 /* View+RoundedCorners.swift */,
 				3DA08D6A2AD6FB78008645B6 /* ErrorView.swift */,
+				3DA08D6F2AD72975008645B6 /* WeatherBackround.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				3DA08D692AD6FB0F008645B6 /* WeatherDataCell.swift in Sources */,
 				3DA08D272AD191E5008645B6 /* URLSessionHTTPClientTask.swift in Sources */,
 				3DA08D5D2AD5751F008645B6 /* Wind.swift in Sources */,
+				3DA08D702AD72975008645B6 /* WeatherBackround.swift in Sources */,
 				3DA08D592AD482DC008645B6 /* Constants.swift in Sources */,
 				3DA08D652AD6FACA008645B6 /* View+RoundedCorners.swift in Sources */,
 				3DA08CE92AD1874E008645B6 /* AppDelegate.swift in Sources */,

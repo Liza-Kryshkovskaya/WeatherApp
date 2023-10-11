@@ -12,14 +12,10 @@ struct WeatherView: View {
         
     var body: some View {
         ZStack {
-            backround
+            WeatherBackround()
             content
             toolBar
         }
-    }
-    
-    private var backround: some View {
-        LinearGradient(gradient: Gradient(colors: [Color("bgTop"), Color("bgBottom")]), startPoint: .topLeading, endPoint: .bottomLeading).ignoresSafeArea()
     }
     
     private var content: some View {
