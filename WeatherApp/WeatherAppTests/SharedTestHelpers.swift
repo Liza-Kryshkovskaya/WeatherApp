@@ -18,3 +18,7 @@ func anyHTTPURLResponse(statusCode: Int) -> HTTPURLResponse {
 func anyData() -> Data {
     return Data("any data".utf8)
 }
+
+func anyError() -> NSError {
+    NSError(domain: "test", code: 0)
+}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Coordinate {
+struct Coordinate: Equatable {
     let lat: Double
     let lon: Double
 }
