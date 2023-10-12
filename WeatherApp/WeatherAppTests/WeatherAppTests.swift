@@ -7,30 +7,39 @@
 
 import XCTest
 @testable import WeatherApp
+import SwiftUI
 
 final class WeatherAppTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func test_configureWindow_setsWindowAsKeyAndVisible() {
+        let window = UIWindowSpy()
+        let sut = SceneDelegate()
+        sut.window = window
+        
+        sut.configureWindow()
+        
+        XCTAssertEqual(window.makeKeyAndVisibleCallCount, 1)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_configureWindow_configuresRootViewController() {
+        let sut = SceneDelegate()
+        sut.window = UIWindowSpy()
+        
+        sut.configureWindow()
+        
+        let root = sut.window?.rootViewController
+        let rootNavigation = root as? UINavigationController
+        let topController = rootNavigation?.topViewController
+        
+        XCTAssertNotNil(rootNavigation, "Expected a navigation controller as root, got \(String(describing: root)) instead")
+        XCTAssertTrue(topController is UIHostingController<WeatherView>, "Expected a weather view as top view, got \(String(describing: topController)) instead")
     }
+}
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+private class UIWindowSpy: UIWindow {
+    var makeKeyAndVisibleCallCount = 0
+    
+    override func makeKeyAndVisible() {
+        makeKeyAndVisibleCallCount = 1
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
