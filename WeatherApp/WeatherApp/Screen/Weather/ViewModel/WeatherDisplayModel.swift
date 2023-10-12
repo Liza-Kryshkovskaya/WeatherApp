@@ -32,8 +32,9 @@ struct WeatherDisplayModel {
         self.visibility = String(currentWeather.visibility) + " m"
         self.windSpeed = String(format: "%.0f", currentWeather.wind.speed) + " m/s"
         self.clouds = String(currentWeather.clouds.all) + "%"
-        self.sunrise = WeatherDisplayModel.formatTime(TimeInterval(currentWeather.sun.sunrise))
-        self.sunset = WeatherDisplayModel.formatTime(TimeInterval(currentWeather.sun.sunset))
+        let timezone = TimeZone(secondsFromGMT: currentWeather.timezone) ?? TimeZone.current
+        self.sunrise = WeatherDisplayModel.formatTime(TimeInterval(currentWeather.sun.sunrise), timeZone: timezone)
+        self.sunset = WeatherDisplayModel.formatTime(TimeInterval(currentWeather.sun.sunset), timeZone: timezone)
         self.humidity = String(currentWeather.main.humidity) + "%"
         self.pressure = String(currentWeather.main.pressure) + " hPa"
         self.feelsLike = WeatherDisplayModel.formatTemperature(currentWeather.main.feelsLike)
@@ -45,9 +46,10 @@ struct WeatherDisplayModel {
         return "\(formattedTemperature)°"
     }
     
-    static private func formatTime(_ timestamp: TimeInterval) -> String {
+    static private func formatTime(_ timestamp: TimeInterval, timeZone: TimeZone) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = timeZone
         let date = Date(timeIntervalSince1970: timestamp)
         return dateFormatter.string(from: date)
     }
