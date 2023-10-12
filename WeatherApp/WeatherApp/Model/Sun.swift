@@ -9,3 +9,9 @@ struct Sun: Codable {
     let sunrise: Int
     let sunset: Int
 }
+
+extension Sun: Equatable {
+    static func == (lhs: Sun, rhs: Sun) -> Bool {
+        return lhs.sunrise == rhs.sunrise && lhs.sunset == rhs.sunset
+    }
+}

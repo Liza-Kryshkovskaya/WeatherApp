@@ -24,3 +24,14 @@ struct CurrentWeatherMain: Codable {
         case pressure, humidity
     }
 }
+
+extension CurrentWeatherMain: Equatable {
+    static func == (lhs: CurrentWeatherMain, rhs: CurrentWeatherMain) -> Bool {
+        return lhs.temp == rhs.temp &&
+               lhs.feelsLike == rhs.feelsLike &&
+               lhs.minTemp == rhs.minTemp &&
+               lhs.maxTemp == rhs.maxTemp &&
+               lhs.pressure == rhs.pressure &&
+               lhs.humidity == rhs.humidity
+    }
+}

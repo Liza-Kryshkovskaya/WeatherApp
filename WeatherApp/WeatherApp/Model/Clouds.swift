@@ -8,3 +8,9 @@
 struct Clouds: Codable {
     let all: Int
 }
+
+extension Clouds: Equatable {
+    static func == (lhs: Clouds, rhs: Clouds) -> Bool {
+        return lhs.all == rhs.all
+    }
+}

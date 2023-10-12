@@ -12,3 +12,11 @@ struct WeatherCondition: Codable {
     let description: String
     let icon: String
 }
+
+extension WeatherCondition: Equatable {
+    static func == (lhs: WeatherCondition, rhs: WeatherCondition) -> Bool {
+        return lhs.main == rhs.main &&
+               lhs.description == rhs.description &&
+               lhs.icon == rhs.icon
+    }
+}

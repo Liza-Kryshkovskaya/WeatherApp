@@ -8,3 +8,9 @@
 struct Wind: Codable {
     let speed: Double
 }
+
+extension Wind: Equatable {
+    static func == (lhs: Wind, rhs: Wind) -> Bool {
+        return lhs.speed == rhs.speed
+    }
+}
