@@ -32,6 +32,6 @@ struct ErrorView: View {
             }
         }
         .padding(.horizontal, 24)
-        .foregroundColor(Color("foreground"))
+        .foregroundColor(WeatherViewConstants.foregroundColor)
     }
 }

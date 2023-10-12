@@ -42,7 +42,7 @@ struct SearchView: View {
             viewModel.getWeatherByCurrentLocation()
         } label: {
             Image(systemName: "location.circle")
-                .foregroundColor(Color("foreground"))
+                .foregroundColor(WeatherViewConstants.foregroundColor)
                 .font(.system(size: 24))
         }
     }
@@ -59,7 +59,7 @@ struct SearchView: View {
                     }
                 } label: {
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(Color("foreground"))
+                        .foregroundColor(WeatherViewConstants.foregroundColor)
                 }
                 .padding(.trailing, 4)
             }
@@ -69,7 +69,7 @@ struct SearchView: View {
     private var cancelButton: some View {
         Button { viewModel.cancel() } label: {
             Text("Cancel")
-                .foregroundColor(Color("foreground"))
+                .foregroundColor(WeatherViewConstants.foregroundColor)
                 .fontWeight(.semibold)
         }
     }
@@ -84,13 +84,13 @@ struct SearchView: View {
                             Spacer()
                         }
                         .frame(maxWidth: .infinity)
-                        .foregroundColor(Color("foreground"))
+                        .foregroundColor(WeatherViewConstants.foregroundColor)
                         .font(.title3)
                         HStack {
                             Text((location.state ?? ""))
                             Spacer()
                         }
-                        .foregroundColor(Color("foreground").opacity(0.8))
+                        .foregroundColor(WeatherViewConstants.foregroundColor.opacity(0.8))
                         .padding(.bottom, 10)
                         .font(.body)
                     }

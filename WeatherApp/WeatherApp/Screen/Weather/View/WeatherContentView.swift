@@ -15,7 +15,7 @@ struct WeatherContentView: View {
             locationAndTemperature
             weatherParameters
         }
-        .foregroundColor(Color("foreground"))
+        .foregroundColor(WeatherViewConstants.foregroundColor)
         .padding(.horizontal, 24)
         .padding(.bottom, 40)
     }

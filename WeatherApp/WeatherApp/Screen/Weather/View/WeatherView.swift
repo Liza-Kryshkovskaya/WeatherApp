@@ -38,12 +38,12 @@ struct WeatherView: View {
     }
     
     private var toolBar: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: WeatherViewConstants.noSpacing) {
             Spacer()
             Rectangle()
-                .foregroundColor(Color("foreground"))
-                .cornerRadius(20, corners: [.topLeft, .topRight])
-                .frame(height: 20)
+                .foregroundColor(WeatherViewConstants.foregroundColor)
+                .cornerRadius(WeatherViewConstants.cornerRadius, corners: [.topLeft, .topRight])
+                .frame(height: WeatherViewConstants.toolBarHeight)
             HStack {
                 Button {
                     withAnimation {
@@ -62,10 +62,10 @@ struct WeatherView: View {
                     Image(systemName: "magnifyingglass")
                 }
             }
-            .font(.system(size: 20, weight: .semibold))
-            .padding(.horizontal, 34)
-            .background(Color("foreground").ignoresSafeArea())
-            .foregroundColor(Color("bgTop"))
+            .font(WeatherViewConstants.buttonFont)
+            .padding(.horizontal, WeatherViewConstants.horizontalPadding)
+            .background(WeatherViewConstants.foregroundColor.ignoresSafeArea())
+            .foregroundColor(WeatherViewConstants.bgColor)
         }
     }
 }
