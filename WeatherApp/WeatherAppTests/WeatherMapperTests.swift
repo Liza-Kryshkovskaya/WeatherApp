@@ -45,19 +45,7 @@ final class WeatherMapperTests: XCTestCase {
         XCTAssertEqual(result, model)
     }
     
-    func anyURL() -> URL {
-        return URL(string: "http://any-url.com")!
-    }
-    
-    func anyHTTPURLResponse(statusCode: Int) -> HTTPURLResponse {
-        return HTTPURLResponse(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
-    }
-    
-    func anyData() -> Data {
-        return Data("any data".utf8)
-    }
-    
-    func jsonModel() -> [String : Any] {
+    private func jsonModel() -> [String : Any] {
         return [
             "weather": [
                 [
@@ -90,7 +78,7 @@ final class WeatherMapperTests: XCTestCase {
         ]
     }
     
-    func weatherModel() -> CurrentWeather {
+    private func weatherModel() -> CurrentWeather {
         return CurrentWeather(weatherCondition: [WeatherCondition(main: "1", description: "1", icon: "1")], main: CurrentWeatherMain(temp: 1, feelsLike: 1, minTemp: 1, maxTemp: 1, pressure: 1, humidity: 1), visibility: 1, wind: Wind(speed: 1), clouds: Clouds(all: 1), sun: Sun(sunrise: 1, sunset: 1), city: "1", timezone: 1)
 
     }

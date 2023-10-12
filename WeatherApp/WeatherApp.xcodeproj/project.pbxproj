@@ -51,6 +51,8 @@
 		3DA08D702AD72975008645B6 /* WeatherBackround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D6F2AD72975008645B6 /* WeatherBackround.swift */; };
 		3DA08D722AD7EBEE008645B6 /* WeatherViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D712AD7EBEE008645B6 /* WeatherViewConstants.swift */; };
 		3DA08D742AD80A46008645B6 /* WeatherMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D732AD80A46008645B6 /* WeatherMapperTests.swift */; };
+		3DA08D762AD80BBA008645B6 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D752AD80BBA008645B6 /* SharedTestHelpers.swift */; };
+		3DA08D782AD80D47008645B6 /* WeatherLocationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA08D772AD80D47008645B6 /* WeatherLocationMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		3DA08D6F2AD72975008645B6 /* WeatherBackround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherBackround.swift; sourceTree = "<group>"; };
 		3DA08D712AD7EBEE008645B6 /* WeatherViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewConstants.swift; sourceTree = "<group>"; };
 		3DA08D732AD80A46008645B6 /* WeatherMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMapperTests.swift; sourceTree = "<group>"; };
+		3DA08D752AD80BBA008645B6 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		3DA08D772AD80D47008645B6 /* WeatherLocationMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 			children = (
 				3DA08CFF2AD1874F008645B6 /* WeatherAppTests.swift */,
 				3DA08D732AD80A46008645B6 /* WeatherMapperTests.swift */,
+				3DA08D772AD80D47008645B6 /* WeatherLocationMapper.swift */,
+				3DA08D752AD80BBA008645B6 /* SharedTestHelpers.swift */,
 			);
 			path = WeatherAppTests;
 			sourceTree = "<group>";
@@ -475,8 +481,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA08D782AD80D47008645B6 /* WeatherLocationMapper.swift in Sources */,
 				3DA08D002AD1874F008645B6 /* WeatherAppTests.swift in Sources */,
 				3DA08D742AD80A46008645B6 /* WeatherMapperTests.swift in Sources */,
+				3DA08D762AD80BBA008645B6 /* SharedTestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
