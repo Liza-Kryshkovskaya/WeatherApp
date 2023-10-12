@@ -5,8 +5,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3j7-WR-7Kg">
                                 <rect key="frame" x="96.666666666666671" y="326.33333333333331" width="200.66666666666669" height="198.66666666666669"/>
-                                <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.74367559520000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="foreground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="4Bf-lJ-oOr"/>
                                     <constraint firstAttribute="width" constant="200" id="rXn-Pw-fmS"/>
@@ -29,13 +29,14 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KNOW YOUR WEATHER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eq8-5r-bov">
                                 <rect key="frame" x="20" y="756" width="353" height="22"/>
+                                <color key="tintColor" name="foreground"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.74367559520000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="foreground"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="bgBottom"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Eq8-5r-bov" secondAttribute="trailing" constant="20" id="88x-bB-SMr"/>
                             <constraint firstItem="3j7-WR-7Kg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Aeu-SK-ibx"/>
@@ -52,8 +53,11 @@
     </scenes>
     <resources>
         <image name="cloud.sun.fill" catalog="system" width="128" height="96"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="bgBottom">
+            <color red="0.45490196078431372" green="0.69803921568627447" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="foreground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
